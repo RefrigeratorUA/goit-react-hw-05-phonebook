@@ -1,1 +1,1 @@
-export { NotificationContainer, showErrorNotification } from './Notification';
+export { default } from './Notification';

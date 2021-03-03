@@ -1,0 +1,10 @@
+.section {
+  position: relative;
+  width: 640px;
+  margin: 10px auto;
+  padding: 60px 20px 20px 20px;
+  border-radius: 3px;
+  box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 3px 3px 8px 1px rgba(0, 0, 0, 0.2);
+}

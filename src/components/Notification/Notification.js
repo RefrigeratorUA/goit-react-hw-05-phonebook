@@ -1,33 +1,23 @@
-import PropTypes from 'prop-types';
-import { toast, ToastContainer, Zoom } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { Component } from 'react';
 
-const NotificationContainer = ({ position = 'top-right', autoClose = 3000 }) => {
-  return (
-    <ToastContainer
-      position={position}
-      autoClose={autoClose}
-      hideProgressBar={false}
-      newestOnTop={false}
-      pauseOnHover={true}
-      closeOnClick={true}
-      draggable={true}
-      progress={undefined}
-      transition={Zoom}
-      pauseOnFocusLoss
-      rtl={false}
-      limit={1}
-    />
-  );
-};
+class Notification extends Component {
+  state = {
+    nodeRef: this.props.nodeRef,
+    errorMessage: this.props.message,
+  };
+  componentDidMount() {
+    const { onView } = this.props;
+    setTimeout(() => onView('', false), 2000);
+  }
 
-const showErrorNotification = (message, objSettings) => {
-  toast.error(message, objSettings);
-};
+  render() {
+    const { nodeRef, errorMessage } = this.state;
+    return (
+      <div className="alert" ref={nodeRef}>
+        {errorMessage}
+      </div>
+    );
+  }
+}
 
-NotificationContainer.propTypes = {
-  position: PropTypes.string,
-  autoClose: PropTypes.number,
-};
-
-export { NotificationContainer, showErrorNotification };
+export default Notification;
